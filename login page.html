@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DOC.AI Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.brand {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size: 26px;
+    font-weight: 600;
+    color: white;
+}
+
+.left {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-box {
+    text-align: center;
+    animation: fadeIn 2s ease;
+}
+
+.logo-box img {
+    width: 530px;
+    margin-bottom: 20px;
+}
+
+.logo-box h1 {
+    color: white;
+    font-size: 28px;
+}
+
+.logo-box p {
+    color: #cfd8dc;
+}
+
+.right {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+}
+
+.login-box {
+    width: 420px;
+    padding: 40px;
+    border-radius: 12px;
+
+    background: #ffffff; /* solid white */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+    color: #333; /* dark text */
+    text-align: center;
+
+    animation: slideRight 0.8s ease;
+}
+
+.login-box h2 {
+    margin-bottom: 25px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 40px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+
+    background: #f5f7fa;
+    color: #333;
+}
+
+.input-box input::placeholder {
+    color: #888;
+}
+
+.input-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,114,255,0.3);
+}
+.right {
+    border-left: 1px solid #eee;
+}
+
+#message {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.footer {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #bbb;
+}
+
+@keyframes slideRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+</style>
+
+<script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
+
+</head>
+
+<body>
+
+<div class="left">
+    <div class="logo-box">
+        <img src="your-logo.png" alt="DOC.AI Logo">
+        <h1>DOC.AI</h1>
+        <p>Next-gen AI Medical Diagnosis System</p>
+    </div>
+</div>
+
+<div class="right">
+    <div class="login-box">
+        <h2>Login</h2>
+
+        <form id="loginForm">
+            <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" placeholder="Enter Username" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Enter Password" required>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p id="message"></p>
+        <div class="footer">Secure Access to Medical AI System</div>
+    </div>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if(user === "admin" && pass === "1234") {
+        document.getElementById("message").style.color = "#00ffcc";
+        document.getElementById("message").innerText = "Login Successful!";
+        
+        setTimeout(() => {
+            window.location.href = "userinterface.html";
+        }, 1000);
+
+    } else {
+        document.getElementById("message").style.color = "#ff4d4d";
+        document.getElementById("message").innerText = "Invalid Credentials";
+    }
+});
+</script>
+
+</body>
+</html>
